@@ -1,0 +1,70 @@
+alg_para:
+  alg_name: PPO
+
+env_para:
+  env_name: AtariEnv
+  env_info:
+    name: BreakoutNoFrameskip-v4
+    vision: False
+
+agent_para:
+  agent_name: AtariPpo
+  agent_num : 1
+  agent_config:
+    max_steps: 128
+    complete_step: 10000000
+    is_block: False
+
+model_para:
+  actor:
+    model_name: PpoCnn
+    state_dim: [84, 84, 4]
+    action_dim: 4
+    input_dtype: uint8
+    model_config:
+      BATCH_SIZE: 320
+      CRITIC_LOSS_COEF: 1.0
+      ENTROPY_LOSS: 0.003
+      LOSS_CLIPPING: 0.1
+      LR: 0.00025
+      MAX_GRAD_NORM: 5.0
+      NUM_SGD_ITER: 4
+      SUMMARY: False
+      VF_SHARE_LAYERS: True
+      activation: relu
+      hidden_sizes: [256]
+      gpu_nums: 2
+    gpu_config:
+      cluster:
+        peers:
+      self:
+        rank:
+
+
+
+env_num: 10
+speedup: True
+start_core: 0
+
+benchmark:
+  log_interval_to_train: 10
+  archive_root: /home/xys/xt_logs/logs-xingtian-master
+  id: ppo_env_20_gpu9_notb_bind_core
+
+  # env20: 2.06 1.44 5101
+
+  # 1 gpu 1 learner 16 env
+  # 1 gpu 3 learner 21 env
+  # 3 gpu 3 learner 22 env
+
+
+  # 1 gpu 2 learner 10 env  2681
+  # 1 gpu 3 learner 10 env  2638
+  # 3 gpu 3 learner 10 env  2581
+
+  # 3 gpu 6 learner 22 env  5400
+  # 3 gpu 6 learner 30 env  7300
+  # 3 gpu 9 learner 31 env  7265
+
+
+
