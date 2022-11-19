@@ -406,7 +406,7 @@ class Broker(object):
             # predict_reply
             # e.g, {'ctr_info': {'broker_id': 0, 'explorer_id': 4, 'agent_id': -1,
             # 'cmd': 'predict_reply'}, 'data': 0}
-
+            # explorer_id = [-1]
             for _eid in explorer_id:
                 if _eid > -1:
                     self.send_explorer_q[_eid].put(recv_data)
@@ -495,12 +495,39 @@ class Broker(object):
 
         p = Process(target=explorer.start)
         p.start()
+        time.sleep(0.01)
+        # cpu_count = psutil.cpu_count()
+        # if speedup and cpu_count > (env_num + start_core):
+        #     _p = psutil.Process(p.pid)
+        #     _p.cpu_affinity([start_core + env_id])
+        #     print("pid = {}  ===  bind core =========== {}".format(p.pid, [start_core + env_id]))
+        #     # _p.cpu_affinity([start_core + (env_id // 5) * 10  + env_id % 5])
+        
+        socket = 0
+        with open('/proc/cpuinfo', 'r') as f:
+            for line in f:  # number of sockets = maximum physical cpu id
+                if line.lower().startswith('physical'):  # physical id : xxx
+                    socket = max(socket, int(line.split()[-1]))
+        socket = socket + 1
+        logical, physical = psutil.cpu_count(), psutil.cpu_count(logical=False)
 
-        cpu_count = psutil.cpu_count()
-        if speedup and cpu_count > (env_num + start_core):
+        if speedup == 3: # pipeline: to be updated
+            pass
+        elif speedup == 2 and logical >= env_num:  # balanced core binding
+            base = ((env_id // physical) % (logical // physical)) * physical
+            env = env_id % physical
+            cpu = env // socket + (env % socket) * (physical // socket) + base
             _p = psutil.Process(p.pid)
-            # _p.cpu_affinity([start_core + env_id])
-            _p.cpu_affinity([start_core + (env_id // 5) * 10  + env_id % 5])
+            _p.cpu_affinity([cpu])
+            logging.info("speedup({:d}): binding env {:d} to CPU {:d}".format(speedup, env_id, cpu))
+        elif speedup == 1 and logical > (env_num + start_core):  # sequential core binding
+            _p = psutil.Process(p.pid)
+            _p.cpu_affinity([start_core + env_id])
+            logging.info("speedup({:d}): binding env {:d} to CPU {:d}"
+                         .format(speedup, env_id, start_core + env_id))
+        else:  # scheduled by os
+            logging.info("speedup({:d}): no binding".format(speedup))
+
 
         self.send_explorer_q.update({env_id: send_explorer})
         self.explore_process.update({env_id: p})

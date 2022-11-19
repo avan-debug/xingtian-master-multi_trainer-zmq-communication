@@ -19,6 +19,7 @@
 # THE SOFTWARE.
 
 
+from time import time
 import numpy as np
 
 from xt.model import XTModel
@@ -122,6 +123,7 @@ class PPO(XTModel):
 
     def train(self, state, label):
         # print("===================================================")
+        start_ = time()
         with self.graph.as_default():
             #dwj test
             # if self.gpu_nums > 1:
@@ -165,5 +167,5 @@ class PPO(XTModel):
                                  self.target_v_ph: label[4][mbinds]}
                     ret_value = self.sess.run([self.train_op, self.loss], feed_dict)
                     loss_val.append(np.mean(ret_value[1]))
-
+            print("train time ================== {}".format(time() - start_))
             return np.mean(loss_val)

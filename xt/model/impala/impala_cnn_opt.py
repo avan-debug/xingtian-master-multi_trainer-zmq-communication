@@ -215,9 +215,9 @@ class ImpalaCnnOpt(XTModel):
             optimizer = AdamOptimizer(learning_rate)
 
             # multi_trainer
-            if self.type is 'learner':
-            # self.optimizer = allreduce_optimizer(self._lr, tf.train.AdamOptimizer)
-                optimizer = allreduce_optimizer(learning_rate, tf.train.AdamOptimizer)
+            # if self.type is 'learner':
+            # # self.optimizer = allreduce_optimizer(self._lr, tf.train.AdamOptimizer)
+            #     optimizer = allreduce_optimizer(learning_rate, tf.train.AdamOptimizer)
 
         elif self.opt_type == "rmsprop":
             optimizer = tf.train.RMSPropOptimizer(LR, decay=0.99, epsilon=0.1, centered=True)
@@ -243,8 +243,8 @@ class ImpalaCnnOpt(XTModel):
         self.sess.run(global_variables_initializer())
 
         #multi_trainer
-        if self.type is 'learner':
-            self.sess = syn_init_model(self.sess)
+        # if self.type is 'learner':
+        #     self.sess = syn_init_model(self.sess)
 
         self.explore_paras = tf.get_collection(
             tf.GraphKeys.TRAINABLE_VARIABLES,

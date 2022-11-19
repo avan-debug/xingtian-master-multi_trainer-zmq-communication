@@ -1,0 +1,46 @@
+agent_para:
+  agent_config:
+    complete_step: 1000000
+    max_steps: 128
+  agent_name: AtariImpalaOpt
+  agent_num: 1
+alg_para:
+  alg_config:
+    BATCH_SIZE: 512
+    prepare_times_per_train: 1
+    train_per_checkpoint: 1
+  alg_name: IMPALAOpt
+benchmark:
+  archive_root: /home/xys/xt_logs/test_record_time/good_boy_dif_env_balance_bind_core
+  id: ImpalaCnnOpt_env_num_32_2022-11-18_00:05:26
+  log_interval_to_train: 1
+env_num: 32
+env_para:
+  env_info:
+    name: BreakoutNoFrameskip-v4
+    vector_env_size: 1
+    vision: false
+  env_name: VectorAtariEnv
+model_para:
+  actor:
+    action_dim: 4
+    gpu_config:
+      cluster:
+        peers: null
+      self:
+        rank: null
+    input_dtype: uint8
+    model_config:
+      LR: 0.0005
+      gpu_nums: 1
+      grad_norm_clip: 40.0
+      sample_batch_step: 128
+    model_name: ImpalaCnnOpt
+    state_dim:
+    - 84
+    - 84
+    - 4
+    state_mean: 0.0
+    state_std: 255.0
+speedup: 2
+start_core: 0

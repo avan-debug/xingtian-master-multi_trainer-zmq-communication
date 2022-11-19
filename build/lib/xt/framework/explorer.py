@@ -57,7 +57,7 @@ class Explorer(object):
     def start_explore(self):
         """Start explore process."""
         signal.signal(signal.SIGINT, signal.SIG_IGN)
-        os.environ["CUDA_VISIBLE_DEVICES"] = str(-1)
+        # os.environ["CUDA_VISIBLE_DEVICES"] = str(-1)
         explored_times = 0
 
         try:

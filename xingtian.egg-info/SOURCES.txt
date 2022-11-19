@@ -14,6 +14,7 @@ xingtian.egg-info/top_level.txt
 xt/__init__.py
 xt/benchmarking.py
 xt/evaluate.py
+xt/get_best_env_num.py
 xt/main.py
 xt/train.py
 xt/agent/__init__.py

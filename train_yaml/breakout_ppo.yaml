@@ -12,7 +12,7 @@ agent_para:
   agent_num : 1
   agent_config:
     max_steps: 128
-    complete_step: 10000000
+    complete_step: 1000000
     is_block: True
 
 model_para:
@@ -48,7 +48,7 @@ start_core: 0
 
 benchmark:
   log_interval_to_train: 10
-  archive_root: /home/xys/xt_logs/ppo_pipeline_bolt
-  id: ppo_env_20_notb
+  archive_root: /home/xys/xt_logs/test_record_time/good_boy_dif_env_balance_bind_core
+  id: ppo_
 
 # env20: 2.06 1.44 5101

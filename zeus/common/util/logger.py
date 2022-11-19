@@ -255,6 +255,15 @@ class StatsRecorder(threading.Thread):
         self._name = name
         self.show_interval = show_interval
 
+        self.file_dir = self.workspace.rsplit("/", 1)[0]
+        # add exp and train time to file
+        self.time_record_filename = self.file_dir + "/" + \
+            str(str(self.bm_args["alg"]["alg_config"].get("prepare_times_per_train")) + ".txt"\
+            if self.bm_args["alg"]["alg_config"].get("prepare_times_per_train" )\
+            else str(self.bm_args["alg"]["alg_config"].get("instance_num")) + ".txt")
+        
+        self.skip_record = 0
+        self.total_skip_record = 5
         # stats from explorer
         self.explore_stats = {
             "mean_env_step_ms": deque(maxlen=explore_deque_len),
@@ -360,6 +369,8 @@ class StatsRecorder(threading.Thread):
         )
         _show_items = 0
         skip_items = ("train_count", "step", "elapsed_time")
+        # information
+        
         for _key, val in sorted(_info.items()):
             if _key in skip_items:
                 continue
@@ -369,6 +380,15 @@ class StatsRecorder(threading.Thread):
 
         show_str = _str + "\n" if not _str.endswith("\n") else _str
         logging.info(show_str)
+
+        if self.skip_record < self.total_skip_record:
+            self.skip_record += 1
+        else:
+            with open(self.time_record_filename, "a+") as f:
+                for _key, val in sorted(_info.items()):
+                    f.write(_key + "\t" + str(round(float(val), 6)) + "\n")
+                f.write("\n")
+            print("==================write to file==================================")
 
     def run(self):
         """Overwrite threading.Thread.run() function with True."""

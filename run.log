@@ -1,0 +1,224 @@
+WARNING:tensorflow:From /home/tank/miniconda3/envs/openmmlab/lib/python3.7/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING: Logging before flag parsing goes to stderr.
+WARNING [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:33: Key:PPO is registered, will replace with model.
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:34: 
+**************************************************
+ XT start work...
+Namespace(config_file='/home/xys/xingtian-test/xingtian-master3/xingtian-master/record_time/test_2022-11-18_00:48:53/env_8__2022-11-18_00:48:53.yaml', save_to_s3=None, task='train', verbosity='info')
+**************************************************
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:35: init learner with:
+{'agent_para': {'agent_config': {'complete_step': 100000,
+                              'max_steps': 128},
+              'agent_name': 'AtariImpalaOpt',
+              'agent_num': 1},
+'alg_para': {'alg_config': {'BATCH_SIZE': 512,
+                          'agent_num': 1,
+                          'api_type': 'standalone',
+                          'env_attr': {'agent_ids': [0],
+                                      'api_type': 'standalone',
+                                      'episode_limit': 300,
+                                      'n_actions': 7,
+                                      'n_agents': 2,
+                                      'obs_shape': 17,
+                                      'state_shape': 27},
+                          'instance_num': 8,
+                          'prepare_times_per_train': 1,
+                          'train_per_checkpoint': 1},
+            'alg_name': 'IMPALAOpt',
+            'model_info': {'actor': {'action_dim': 4,
+                                   'gpu_config': {'cluster': {'peers': None},
+                                                 'self': {'rank': None}},
+                                   'input_dtype': 'uint8',
+                                   'model_config': {'LR': 0.0005,
+                                                   'action_type': None,
+                                                   'agent_ids': [0],
+                                                   'api_type': 'standalone',
+                                                   'episode_limit': 300,
+                                                   'gpu_nums': 1,
+                                                   'grad_norm_clip': 40.0,
+                                                   'n_actions': 7,
+                                                   'n_agents': 2,
+                                                   'obs_shape': 17,
+                                                   'sample_batch_step': 128,
+                                                   'state_shape': 27},
+                                   'model_name': 'ImpalaCnnOpt',
+                                   'state_dim': [84,
+                                                84,
+                                                4],
+                                   'state_mean': 0.0,
+                                   'state_std': 255.0}}},
+'benchmark': {'archive_root': '/home/xys/xt_logs/test_record_time/good_boy_record_time_2022-11-18_00:48:53',
+             'id': 'impala_',
+             'log_interval_to_train': 1},
+'env_num': 8,
+'env_para': {'env_info': {'name': 'BreakoutNoFrameskip-v4',
+                        'vector_env_size': 1,
+                        'vision': False},
+            'env_name': 'VectorAtariEnv'},
+'model_para': {'actor': {'action_dim': 4,
+                       'gpu_config': {'cluster': {'peers': None},
+                                     'self': {'rank': None}},
+                       'input_dtype': 'uint8',
+                       'model_config': {'LR': 0.0005,
+                                       'action_type': None,
+                                       'agent_ids': [0],
+                                       'api_type': 'standalone',
+                                       'episode_limit': 300,
+                                       'gpu_nums': 1,
+                                       'grad_norm_clip': 40.0,
+                                       'n_actions': 7,
+                                       'n_agents': 2,
+                                       'obs_shape': 17,
+                                       'sample_batch_step': 128,
+                                       'state_shape': 27},
+                       'model_name': 'ImpalaCnnOpt',
+                       'state_dim': [84,
+                                    84,
+                                    4],
+                       'state_mean': 0.0,
+                       'state_std': 255.0}},
+'node_config': [('127.0.0.1',
+               'dummy_user',
+               'dummy_password')],
+'speedup': True,
+'start_core': 0}
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:35: Init Broker server info:
+{'recv': {'port': 31566,
+        'type': 'PULL'},
+'send': [{'port': 33550,
+        'type': 'PUSH'}]}
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:35: start launching Broker with: import xt; from xt import start_broker; start_broker(0, 31566, 33550, '127.0.0.1', 'info')
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:35: launch local broker with lib success
+plasma_store -m 1000000000 -s /tmp/plasma52775
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:35: **********
+workspace:
+	/home/xys/xt_logs/test_record_time/good_boy_record_time_2022-11-18_00:48:53/impala_+221118005235T0
+
+WARNING:tensorflow:From /home/tank/miniconda3/envs/openmmlab/lib/python3.7/site-packages/tensorflow_core/python/compat/v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING: Logging before flag parsing goes to stderr.
+WARNING [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:38: Key:PPO is registered, will replace with model.
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:39: set verbosity in broker: info
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:39: init broker with id-0
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:39: share buf: plasma_store -m 400000000 -s /tmp/plasma_share52901
+/home/tank/miniconda3/envs/openmmlab/lib/python3.7/threading.py:926: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.run()
+plasma_store -m 100000000 -s /tmp/plasma52901T0
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: init explorer with id: 0, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: init agent group for: explore
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: speedup(1): binding env 0 to CPU 0
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: init explorer with id: 1, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: speedup(1): binding env 1 to CPU 1
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: init explorer with id: 2, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: speedup(1): binding env 2 to CPU 2
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: init explorer with id: 3, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:40: speedup(1): binding env 3 to CPU 3
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: init explorer with id: 4, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: speedup(1): binding env 4 to CPU 4
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: init explorer with id: 5, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: speedup(1): binding env 5 to CPU 5
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: init explorer with id: 6, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: speedup(1): binding env 6 to CPU 6
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: init explorer with id: 7, buf_path: /tmp/plasma_share52901
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: speedup(1): binding env 7 to CPU 7
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: explorer-0 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:41: explorer-1 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-2 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-3 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-4 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-5 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-6 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:42: explorer-7 start with sync interval-1
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/agent_group.py:273: FutureWarning: 'pyarrow.deserialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  weights = self.buf_stub.get(weights)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/explorer.py:126: FutureWarning: 'pyarrow.serialize' is deprecated as of 2.0.0 and will be removed in a future version. Use pickle or the pyarrow IPC functionality instead.
+  self.send_broker.send(data)
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:44: Task: T0         | Train_count:         1 | Steps:       238 | Elapsed time: 6 seconds
+mean_env_step_ms:         2.232341	mean_explore_ms:        538.129777	mean_inference_ms:        1.854458	mean_loop_time_ms:       28.535843
+mean_prepare_data_ms:     0.516415	mean_restore_model_ms:   59.054166	mean_train_time_ms:     971.798182	mean_wait_model_ms:       0.143886
+mean_wait_sample_ms:    2220.971107	step_per_second:              36.0	train_loss:              -1.980651	train_reward_avg:              0.0
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:51: Task: T0         | Train_count:        80 | Steps:     10309 | Elapsed time: 13 seconds
+mean_env_step_ms:         2.265386	mean_explore_ms:        586.666598	mean_inference_ms:        2.222304	mean_loop_time_ms:       94.220531
+mean_prepare_data_ms:     0.474024	mean_restore_model_ms:   30.620883	mean_train_time_ms:       16.53707	mean_wait_model_ms:     134.288199
+mean_wait_sample_ms:     73.800671	step_per_second:             772.0	train_loss:              -8.441759	train_reward_avg:         0.846154
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:52:58: Task: T0         | Train_count:       159 | Steps:     20380 | Elapsed time: 19 seconds
+mean_env_step_ms:         2.289442	mean_explore_ms:        606.135854	mean_inference_ms:        2.359104	mean_loop_time_ms:       82.162893
+mean_prepare_data_ms:     0.474453	mean_restore_model_ms:   21.098631	mean_train_time_ms:      16.296303	mean_wait_model_ms:     102.944003
+mean_wait_sample_ms:     61.999083	step_per_second:            1020.0	train_loss:              -3.342246	train_reward_avg:         0.913043
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:05: Task: T0         | Train_count:       237 | Steps:     30461 | Elapsed time: 26 seconds
+mean_env_step_ms:         2.302802	mean_explore_ms:        622.956141	mean_inference_ms:        2.487254	mean_loop_time_ms:       77.381814
+mean_prepare_data_ms:     0.453079	mean_restore_model_ms:    9.192117	mean_train_time_ms:      16.331625	mean_wait_model_ms:     107.712801
+mean_wait_sample_ms:     57.344735	step_per_second:            1144.0	train_loss:              48.161152	train_reward_avg:              1.1
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:11: Task: T0         | Train_count:       316 | Steps:     40522 | Elapsed time: 33 seconds
+mean_env_step_ms:         2.350645	mean_explore_ms:        636.068257	mean_inference_ms:        2.544237	mean_loop_time_ms:       75.272763
+mean_prepare_data_ms:     0.426769	mean_restore_model_ms:     4.80322	mean_train_time_ms:      16.628087	mean_wait_model_ms:      51.828885
+mean_wait_sample_ms:     54.960394	step_per_second:            1205.0	train_loss:             -24.036493	train_reward_avg:         1.466667
+
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:18: Task: T0         | Train_count:       395 | Steps:     50608 | Elapsed time: 40 seconds
+mean_env_step_ms:         2.348976	mean_explore_ms:        635.915112	mean_inference_ms:        2.545975	mean_loop_time_ms:       82.339942
+mean_prepare_data_ms:     0.458241	mean_restore_model_ms:    4.553008	mean_train_time_ms:      16.684902	mean_wait_model_ms:      52.139401
+mean_wait_sample_ms:     61.837375	step_per_second:            1251.0	train_loss:             -11.331283	train_reward_avg:              1.6
+
+==================write to file==================================
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:25: Task: T0         | Train_count:       473 | Steps:     60657 | Elapsed time: 47 seconds
+mean_env_step_ms:         2.349107	mean_explore_ms:        641.410685	mean_inference_ms:        2.589306	mean_loop_time_ms:       92.355216
+mean_prepare_data_ms:     0.468218	mean_restore_model_ms:    4.505793	mean_train_time_ms:      16.628397	mean_wait_model_ms:      52.130214
+mean_wait_sample_ms:     72.009397	step_per_second:            1282.0	train_loss:              10.921824	train_reward_avg:         1.433333
+
+==================write to file==================================
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:32: Task: T0         | Train_count:       552 | Steps:     70684 | Elapsed time: 54 seconds
+mean_env_step_ms:         2.334326	mean_explore_ms:        636.871831	mean_inference_ms:        2.569975	mean_loop_time_ms:        92.88646
+mean_prepare_data_ms:     0.478506	mean_restore_model_ms:    4.425605	mean_train_time_ms:      16.142726	mean_wait_model_ms:      51.164118
+mean_wait_sample_ms:     73.069131	step_per_second:            1303.0	train_loss:              12.156121	train_reward_avg:              1.0
+
+==================write to file==================================
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:39: Task: T0         | Train_count:       633 | Steps:     81090 | Elapsed time: 1 minutes, 1 seconds
+mean_env_step_ms:         2.309642	mean_explore_ms:        630.483532	mean_inference_ms:        2.544467	mean_loop_time_ms:       90.850377
+mean_prepare_data_ms:     0.463557	mean_restore_model_ms:    4.554176	mean_train_time_ms:      17.138815	mean_wait_model_ms:      50.557574
+mean_wait_sample_ms:     69.932258	step_per_second:            1325.0	train_loss:             -34.882572	train_reward_avg:         0.966667
+
+==================write to file==================================
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:46: Task: T0         | Train_count:       712 | Steps:     91236 | Elapsed time: 1 minutes, 8 seconds
+mean_env_step_ms:         2.338547	mean_explore_ms:        633.203204	mean_inference_ms:        2.536124	mean_loop_time_ms:       87.464762
+mean_prepare_data_ms:     0.459862	mean_restore_model_ms:    4.278159	mean_train_time_ms:      16.619635	mean_wait_model_ms:      50.852688
+mean_wait_sample_ms:     67.019522	step_per_second:            1340.0	train_loss:              10.444784	train_reward_avg:         1.133333
+
+==================write to file==================================
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Nov 18 00:53:54: Finished train job normally.

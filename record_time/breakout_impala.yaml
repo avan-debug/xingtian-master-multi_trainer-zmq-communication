@@ -19,7 +19,6 @@ agent_para:
   agent_config:
     max_steps: 128
     complete_step: 10020000
-    is_block: False
 
 model_para:
   actor:
@@ -39,11 +38,11 @@ model_para:
         peers:
       self:
         rank:
-env_num: 30
+env_num: 2
 speedup: True
-start_core: 20
+start_core: 0
 
 benchmark:
   log_interval_to_train: 1
-  archive_root: /home/xys/xt_logs/logs-xingtian-master
-  id: impala
+  archive_root: /home/xys/xt_logs/test_record_time/good_boy
+  id: impala_

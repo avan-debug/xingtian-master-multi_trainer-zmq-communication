@@ -20,6 +20,8 @@
 """Create a module cover the training process within the RL problems."""
 
 import os
+# os.environ["CUDA_VISIBLE_DEVICES"] = str(-1)
+
 import threading
 from time import time
 from copy import deepcopy
@@ -28,6 +30,8 @@ import numpy as np
 from absl import logging
 from collections import deque, defaultdict
 import setproctitle
+
+
 
 from xt.environment import env_builder
 from xt.framework.trainer import build_alg_with_trainer
@@ -375,6 +379,7 @@ class TrainWorker(object):
 
 
             if self.train_count % self._log_interval == 0:
+                k = self.logger.get_new_info()
                 self.stats_deliver.send(self.logger.get_new_info(), block=True)
 
             self.train_count += 1

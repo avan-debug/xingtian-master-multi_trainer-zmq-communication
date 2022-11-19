@@ -5,9 +5,5 @@ Summary: XingTian Library enables easy usage on the art Reinforcement Learning a
 Home-page: https://github.com/huawei-noah/xingtian
 Author: XingTian development team
 License: MIT
-Platform: UNKNOWN
 Requires-Python: >=3.6.*
 License-File: LICENSE
-
-UNKNOWN
-

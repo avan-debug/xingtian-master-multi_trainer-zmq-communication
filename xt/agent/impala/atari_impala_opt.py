@@ -51,6 +51,9 @@ class AtariImpalaOpt(CartpolePpo):
             maxlen=self.vector_env_size * self.broadcast_weights_interval)
         self.reward_per_env = defaultdict(float)
 
+        self.is_block = agent_config.get("is_block", True)
+
+
     def get_explore_mean_reward(self):
         """Calculate explore reward among limited trajectory."""
         return np.nan if not self.reward_track else np.nanmean(self.reward_track)
@@ -126,6 +129,22 @@ class AtariImpalaOpt(CartpolePpo):
                 model_name = model_successor
 
         return model_name
+
+    # def sync_model(self):
+    #     """Block wait one [new] model when sync need."""
+    #     model_name = None
+    #     self.sync_weights_count += 1
+    #     if self.sync_weights_count >= self.broadcast_weights_interval:
+    #         model_name = self.recv_explorer.recv(block=self.is_block)
+    #         self.sync_weights_count = 0
+
+    #         model_successor = model_name
+    #         while model_successor:
+    #             model_successor = self.recv_explorer.recv(block=False)
+    #             if model_successor is not None:
+    #                 model_name = model_successor
+    #             # sleep(0.002)
+    #     return model_name
 
     def reset(self):
         """Clear the sample_vector buffer."""

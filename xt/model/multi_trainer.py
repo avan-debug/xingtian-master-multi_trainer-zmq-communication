@@ -247,8 +247,12 @@ def send_train_data(state, label, gpu_nums, trainer_q):
             
     for j in range(gpu_nums - 1):
         train_data = {'state': state_split[j + 1], 'label': label_split[j + 1]}
+        start_0 = time()
         train_msg = message(train_data, cmd="trainer")
         trainer_q[j].send(train_msg, None, False)
+        end_0 = time()
+        print("send time ============= {}".format(end_0 - start_0))
+
 
     return state_split[0], label_split[0]
 
