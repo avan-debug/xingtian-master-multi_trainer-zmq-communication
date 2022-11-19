@@ -33,7 +33,7 @@ model_para:
       VF_SHARE_LAYERS: True
       activation: relu
       hidden_sizes: [256]
-      gpu_nums: 2
+      gpu_nums: 1
     gpu_config:
       cluster:
         peers:
@@ -42,15 +42,14 @@ model_para:
 
 
 
-env_num: 10
+env_num: 18
 speedup: True
 start_core: 0
 
 benchmark:
   log_interval_to_train: 10
   archive_root: /home/xys/xt_logs/logs-xingtian-master
-  id: ppo_env_20_gpu9_notb_bind_core
-
+  id: ppo_
   # env20: 2.06 1.44 5101
 
   # 1 gpu 1 learner 16 env

@@ -9,10 +9,11 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/main.py",
+            // "program": "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/main.py",
+            "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "--config_file", "/home/xys/xingtian-test/xingtian-master3/xingtian-master/breakout_impala.yaml"
+                "--config_file", "/home/xys/xingtian-test/xingtian-master3/xingtian-master/breakout_ppo.yaml"
             ]
         }
     ]

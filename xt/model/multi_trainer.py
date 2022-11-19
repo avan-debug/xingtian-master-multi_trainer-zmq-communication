@@ -223,7 +223,7 @@ def create_trainer(trainer_id, model_info, device_id):
     return trainer.request_q
 
 
-def send_train_data(state, label, gpu_nums, trainer_q, zmq_send):
+def send_train_data(state, label, gpu_nums, trainer_q):
     # 发送给model训练的数据到request_q
     # print("state.shape = ============================", state.shape)
     # impala 需要state.shape[0] // gpu_nums state.shape = (1280, 84, 84, 48)
@@ -244,18 +244,11 @@ def send_train_data(state, label, gpu_nums, trainer_q, zmq_send):
         for i in range(len(label)):
             input_split = label[i][j * shape_split: (j + 1) * shape_split]
             label_split[j].append(input_split)
-
-    
+            
     for j in range(gpu_nums - 1):
         train_data = {'state': state_split[j + 1], 'label': label_split[j + 1]}
-
-
-
         train_msg = message(train_data, cmd="trainer")
-
-        start0 = time()
         trainer_q[j].send(train_msg, None, False)
-        # print("222222222222222 =============== {}".format(time() - start0))
 
     return state_split[0], label_split[0]
 
